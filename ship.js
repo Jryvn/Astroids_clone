@@ -3,8 +3,6 @@ class Ship {
   vr = 0;
   thrust = 0;
   rotation = 0;
-  x = 0;
-  y = 0;
   width = 25;
   height = 20;
   showFlame = false;
@@ -16,10 +14,11 @@ class Ship {
     this.left = 0;
     this.right = canvas.width;
     this.bottom = canvas.bottom;
+    this.x = canvas.width / 2;
+    this.y = canvas.height / 2;
   }
 
   update() {
-    //console.log("update VR: " + this.vr);
     this.rotation += (this.vr * Math.PI) / 180;
     const ax = Math.cos(this.rotation) * this.thrust;
     const ay = Math.sin(this.rotation) * this.thrust;
@@ -66,6 +65,7 @@ class Ship {
     context.restore();
   }
 
+  // used arrow notation for event listeners
   keyPressed = (event) => {
     switch (event.keyCode) {
       case 37: // left
@@ -79,7 +79,6 @@ class Ship {
         this.showFlame = true;
         break;
     }
-    //console.log("event VR: " + this.vr);
   }
 
   keyReleased = (event) => {

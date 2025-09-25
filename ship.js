@@ -13,7 +13,7 @@ class Ship {
     this.top = 0;
     this.left = 0;
     this.right = canvas.width;
-    this.bottom = canvas.bottom;
+    this.bottom = canvas.height;
     this.x = canvas.width / 2;
     this.y = canvas.height / 2;
   }

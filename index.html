@@ -16,6 +16,7 @@
     <script src="util.js"></script>
     <script src="ship.js"></script>
     <script src="space.js"></script>
+    <script src="astroid.js"></script>
     <script>
       "use strict";
       window.onload = function () {
@@ -24,6 +25,10 @@
 
         var space = new Space(canvas);
         var ship = new Ship(canvas);
+        var asteroids = [];
+        for (var i = 0; i < 10; i++){
+          asteroids.push (new Asteroid(canvas));
+        }
 
         window.addEventListener("keydown", ship.keyPressed, false);
         window.addEventListener("keyup", ship.keyReleased, false);
@@ -33,6 +38,10 @@
           space.draw(context);
           ship.update();
           ship.draw(context);
+          for(var i = 0; i < asteroids.length; i++) {
+            asteroids[i].update();
+            asteroids[i].draw(context);
+          }
         })();
       };
     </script>

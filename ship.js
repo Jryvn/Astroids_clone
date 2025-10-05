@@ -16,6 +16,7 @@ class Ship {
     this.bottom = canvas.height;
     this.x = canvas.width / 2;
     this.y = canvas.height / 2;
+    this.fire = false;
   }
 
   update() {
@@ -78,12 +79,18 @@ class Ship {
         this.thrust = 0.05;
         this.showFlame = true;
         break;
+      case 32: //space
+        this.fire = true;
+        break;
     }
   }
 
   keyReleased = (event) => {
-    this.vr = 0;
-    this.thrust = 0;
-    this.showFlame = false;
+    if (event.keyCode != 32){
+      this.vr = 0;
+      this.thrust = 0;
+      this.showFlame = false;
+    }
+
   }
 }
